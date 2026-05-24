@@ -55,17 +55,16 @@ app.use((err, req, res, next) => {
 
 // Start server
 const PORT = env.PORT || 4000;
+
 sequelize.sync()
   .then(() => {
+    console.log("✓ Database connected and synced successfully");
     app.listen(PORT, () => {
-      console.log(`\n🚀 NovaCart Server running on http://localhost:${PORT}`);
-      console.log(`📝 Environment: ${env.NODE_ENV}`);
-      console.log(`🔗 Database: ${env.DATABASE.database}\n`);
+      console.log(`Server running on port ${PORT}`);
     });
   })
-  .catch(err => {
-    console.error('❌ Failed to start server:', err);
-    process.exit(1);
+  .catch((err) => {
+    console.error("Database connection/sync error:", err);
   });
 
 module.exports = app;
