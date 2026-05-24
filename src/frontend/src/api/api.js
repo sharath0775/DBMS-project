@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// API Base URL configured for production Render backend
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://dbms-project-34ec.onrender.com/api';
 
 const api = axios.create({

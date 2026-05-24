@@ -26,6 +26,7 @@ export default function ProductsPage() {
       maxPrice: filters.maxPrice,
       limit: 24
     })
+      // The backend returns `{ message: "...", data: { products: [...] } }`. Axios wraps this in `response.data`.
       .then((response) => setProductsList(response.data.data.products || []))
       .catch(() => setProductsList([]))
       .finally(() => setLoading(false));
