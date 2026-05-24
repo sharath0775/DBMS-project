@@ -1,0 +1,53 @@
+{
+  "name": "novacart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Professional E-Commerce Platform - Full Stack Application",
+  "main": "src/backend/server.js",
+  "scripts": {
+    "dev": "concurrently \"nodemon src/backend/server.js\" \"vite\"",
+    "start": "node src/backend/server.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "seed": "node tests/seed.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "shopping",
+    "express",
+    "mysql",
+    "sequelize",
+    "react",
+    "tailwindcss",
+    "vite"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "axios": "^1.6.6",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "lodash": "^4.17.21",
+    "mysql2": "^3.6.5",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.18.0",
+    "sequelize": "^6.35.2",
+    "sqlite3": "^6.0.1",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.4.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "nodemon": "^3.0.2",
+    "postcss": "^8.4.35"
+  }
+}

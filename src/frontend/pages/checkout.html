@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - NovaCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-white dark:bg-gray-900">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50"></nav>
+
+    <div class="pt-20 min-h-screen">
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-3xl font-bold mb-8">Checkout</h1>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Checkout Form -->
+                <div class="lg:col-span-2">
+                    <form id="checkout-form" class="space-y-6">
+                        <!-- Delivery Address -->
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                            <h2 class="text-2xl font-bold mb-6">Delivery Address</h2>
+
+                            <div class="space-y-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <input type="text" id="delivery_address" placeholder="Street Address" required class="p-3 border dark:bg-gray-700 dark:border-gray-600 rounded" />
+                                    <input type="text" id="delivery_city" placeholder="City" required class="p-3 border dark:bg-gray-700 dark:border-gray-600 rounded" />
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <input type="text" id="delivery_state" placeholder="State" required class="p-3 border dark:bg-gray-700 dark:border-gray-600 rounded" />
+                                    <input type="text" id="delivery_pincode" placeholder="Pincode" required class="p-3 border dark:bg-gray-700 dark:border-gray-600 rounded" />
+                                </div>
+                                <input type="tel" id="phone_number" placeholder="Phone Number" required class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded" />
+                            </div>
+                        </div>
+
+                        <!-- Delivery Options -->
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                            <h2 class="text-2xl font-bold mb-6">Delivery Option</h2>
+
+                            <div class="space-y-3">
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-700">
+                                    <input type="radio" name="delivery_option" value="standard" checked class="mr-3" />
+                                    <span class="font-semibold">Standard Delivery (5-7 days)</span>
+                                    <span class="ml-auto text-green-600">FREE</span>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-700">
+                                    <input type="radio" name="delivery_option" value="express" class="mr-3" />
+                                    <span class="font-semibold">Express Delivery (2-3 days)</span>
+                                    <span class="ml-auto font-semibold">+₹50</span>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-700">
+                                    <input type="radio" name="delivery_option" value="next-day" class="mr-3" />
+                                    <span class="font-semibold">Next Day Delivery</span>
+                                    <span class="ml-auto font-semibold">+₹100</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                            <h2 class="text-2xl font-bold mb-6">Payment Method</h2>
+
+                            <div class="space-y-3">
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-700">
+                                    <input type="radio" name="payment_method" value="cod" checked class="mr-3" />
+                                    <span class="font-semibold">Cash on Delivery</span>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-700">
+                                    <input type="radio" name="payment_method" value="card" class="mr-3" />
+                                    <span class="font-semibold">Debit/Credit Card</span>
+                                </label>
+                                <label class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-700">
+                                    <input type="radio" name="payment_method" value="upi" class="mr-3" />
+                                    <span class="font-semibold">UPI</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Coupon Code -->
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                            <h2 class="text-2xl font-bold mb-6">Coupon Code</h2>
+                            <div class="flex gap-2">
+                                <input type="text" id="coupon_code" placeholder="Enter coupon code" class="flex-1 p-3 border dark:bg-gray-700 dark:border-gray-600 rounded" />
+                                <button type="button" class="bg-gray-600 text-white px-6 py-3 rounded hover:bg-gray-700 transition font-semibold">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow sticky top-24">
+                        <h2 class="text-xl font-bold mb-6">Order Summary</h2>
+
+                        <div id="order-items" class="mb-6 space-y-3 max-h-96 overflow-y-auto"></div>
+
+                        <div class="border-t dark:border-gray-700 pt-4 space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span>Subtotal</span>
+                                <span id="checkout-subtotal">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Tax (18%)</span>
+                                <span id="checkout-tax">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Shipping</span>
+                                <span id="checkout-shipping">Free</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Discount</span>
+                                <span id="checkout-discount">₹0</span>
+                            </div>
+                        </div>
+
+                        <div class="border-t dark:border-gray-700 pt-4 mb-6">
+                            <div class="flex justify-between text-xl font-bold">
+                                <span>Total</span>
+                                <span id="checkout-total">₹0</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" form="checkout-form" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-green-700 transition">
+                            Place Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-800 text-white py-12 mt-16"></footer>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/api/index.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/pages/checkout.js"></script>
+</body>
+</html>

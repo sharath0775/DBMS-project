@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - NovaCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-gradient-to-br from-blue-600 to-purple-600 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">NovaCart</h1>
+            <p class="text-blue-100">Premium Online Shopping</p>
+        </div>
+
+        <!-- Register Form -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Create Your Account</h2>
+
+            <form id="register-form" class="space-y-4">
+                <div>
+                    <label class="block font-semibold mb-2">Full Name</label>
+                    <input type="text" id="name" required class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="John Doe" />
+                </div>
+
+                <div>
+                    <label class="block font-semibold mb-2">Email Address</label>
+                    <input type="email" id="email" required class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="your@email.com" />
+                </div>
+
+                <div>
+                    <label class="block font-semibold mb-2">Password</label>
+                    <input type="password" id="password" required class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="••••••••" />
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Minimum 6 characters</p>
+                </div>
+
+                <div>
+                    <label class="block font-semibold mb-2">Confirm Password</label>
+                    <input type="password" id="confirm-password" required class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="••••••••" />
+                </div>
+
+                <div class="flex items-start">
+                    <input type="checkbox" id="terms" required class="mr-2 mt-1" />
+                    <label class="text-sm">
+                        I agree to the <a href="#" class="text-blue-600 hover:underline">Terms & Conditions</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition mt-6">
+                    Create Account
+                </button>
+            </form>
+
+            <!-- Login Link -->
+            <div class="text-center mt-6">
+                <p class="text-gray-600 dark:text-gray-300">Already have an account? 
+                    <a href="/login.html" class="text-blue-600 hover:underline font-semibold">Login</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="mt-4 bg-red-100 text-red-700 p-4 rounded-lg hidden"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/api/index.js"></script>
+    <script src="js/pages/register.js"></script>
+</body>
+</html>

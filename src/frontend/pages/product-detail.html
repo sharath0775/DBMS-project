@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - NovaCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-white dark:bg-gray-900">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50"></nav>
+
+    <div class="pt-20 min-h-screen">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Product Images -->
+                <div>
+                    <div id="main-image" class="bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden mb-4 h-96 flex items-center justify-center">
+                        <img id="product-image" src="" alt="Product" class="w-full h-full object-cover cursor-zoom-in hover:scale-110 transition-transform duration-300">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div>
+                    <h1 id="product-name" class="text-3xl font-bold mb-2"></h1>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="flex items-center">
+                            <span id="product-rating" class="text-2xl font-bold text-yellow-500">4.5</span>
+                            <span class="text-gray-600 dark:text-gray-300 ml-2">⭐ (120 reviews)</span>
+                        </div>
+                    </div>
+
+                    <div id="stock-status" class="text-lg font-semibold text-green-600 mb-4">In Stock</div>
+
+                    <!-- Price Section -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-4 mb-2">
+                            <span id="product-price" class="text-4xl font-bold text-blue-600">₹0</span>
+                            <span id="original-price" class="text-2xl text-gray-500 line-through">₹0</span>
+                            <span id="discount" class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">-20%</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-lg mb-2">Description</h3>
+                        <p id="product-description" class="text-gray-700 dark:text-gray-300 leading-relaxed"></p>
+                    </div>
+
+                    <!-- Quantity Selector -->
+                    <div class="mb-6 flex items-center gap-4">
+                        <label class="font-semibold">Quantity:</label>
+                        <div class="flex items-center border rounded-lg">
+                            <button id="qty-decrease" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">-</button>
+                            <input id="quantity" type="number" value="1" min="1" max="100" class="w-16 text-center border-x p-2 dark:bg-gray-700">
+                            <button id="qty-increase" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-4 mb-8">
+                        <button id="add-to-cart-btn" class="flex-1 bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                            🛒 Add to Cart
+                        </button>
+                        <button id="wishlist-btn" class="flex-1 bg-red-100 text-red-600 py-3 rounded-lg font-bold text-lg hover:bg-red-200 transition">
+                            ❤️ Wishlist
+                        </button>
+                    </div>
+
+                    <!-- Additional Info -->
+                    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-600 dark:text-gray-400">Brand</p>
+                                <p id="product-brand" class="font-semibold"></p>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 dark:text-gray-400">Category</p>
+                                <p id="product-category" class="font-semibold"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold mb-6">Customer Reviews</h2>
+
+                <!-- Write Review Form -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Share Your Review</h3>
+                    <form id="review-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Rating</label>
+                            <div class="flex gap-2">
+                                <button type="button" class="review-star text-4xl opacity-50 hover:opacity-100" data-rating="1">⭐</button>
+                                <button type="button" class="review-star text-4xl opacity-50 hover:opacity-100" data-rating="2">⭐</button>
+                                <button type="button" class="review-star text-4xl opacity-50 hover:opacity-100" data-rating="3">⭐</button>
+                                <button type="button" class="review-star text-4xl opacity-50 hover:opacity-100" data-rating="4">⭐</button>
+                                <button type="button" class="review-star text-4xl opacity-50 hover:opacity-100" data-rating="5">⭐</button>
+                            </div>
+                            <input type="hidden" id="review-rating" value="0" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Review Title</label>
+                            <input type="text" id="review-title" placeholder="Brief title for your review" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Your Review</label>
+                            <textarea id="review-comment" placeholder="Share your experience with this product..." rows="4" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Submit Review</button>
+                    </form>
+                </div>
+
+                <div id="reviews-container" class="grid gap-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-800 text-white py-12 mt-16"></footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden"></div>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/api/index.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/pages/product-detail.js"></script>
+</body>
+</html>

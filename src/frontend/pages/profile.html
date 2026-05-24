@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - NovaCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-white dark:bg-gray-900 transition-colors duration-300">
+    <nav id="navbar" class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-all duration-300"></nav>
+
+    <main class="pt-24 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Your Profile</h1>
+                <p class="text-gray-600 dark:text-gray-400">Update your account details and delivery information.</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 max-w-3xl mx-auto">
+                <form id="profile-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Full Name</label>
+                            <input id="name" type="text" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Email</label>
+                            <input id="email" type="email" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 bg-gray-100 dark:bg-gray-700" readonly />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Phone Number</label>
+                            <input id="phone_number" type="text" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Pincode</label>
+                            <input id="pincode" type="text" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Address</label>
+                        <textarea id="address" rows="3" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">City</label>
+                            <input id="city" type="text" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">State</label>
+                            <input id="state" type="text" class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-4">
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Update Profile</button>
+                        <div id="profile-message" class="text-sm text-green-600 dark:text-green-400"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="bg-gray-800 text-white py-12"></footer>
+
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/api/index.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/pages/profile.js"></script>
+</body>
+</html>

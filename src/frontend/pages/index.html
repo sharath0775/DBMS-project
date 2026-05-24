@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaCart - Premium Online Shopping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-white dark:bg-gray-900 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-all duration-300"></nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-20">
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 opacity-90"></div>
+            <div class="relative container mx-auto px-4 py-20 text-white">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <p class="text-sm uppercase tracking-[0.4em] text-blue-200">NovaCart Premium</p>
+                        <h1 class="text-5xl md:text-6xl font-black leading-tight">Discover the best deals from top brands with a modern shopping experience.</h1>
+                        <p class="max-w-xl text-lg text-blue-100 opacity-90">Explore trending electronics, fashion, groceries, accessories and more with lightning-fast checkout and smart recommendations.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="window.location.href='/products.html'" class="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-slate-100 transition">Shop Now</button>
+                            <button onclick="document.getElementById('flash-sale').scrollIntoView({ behavior: 'smooth' })" class="border border-white/70 text-white px-8 py-3 rounded-full hover:bg-white/10 transition">Flash Sale</button>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl shadow-lg">
+                                <h3 class="text-xl font-bold">Secure Checkout</h3>
+                                <p class="mt-2 text-blue-100 opacity-90">Fast payment with credit, UPI, wallet or COD.</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl shadow-lg">
+                                <h3 class="text-xl font-bold">Premium Support</h3>
+                                <p class="mt-2 text-blue-100 opacity-90">24/7 live chat and order tracking.</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl text-center">
+                                <p class="text-3xl font-bold">100K+</p>
+                                <p class="text-sm opacity-90">Products</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl text-center">
+                                <p class="text-3xl font-bold">99.9%</p>
+                                <p class="text-sm opacity-90">Customer satisfaction</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl text-center">
+                                <p class="text-3xl font-bold">120+</p>
+                                <p class="text-sm opacity-90">Brands</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flash-sale" class="container mx-auto px-4 py-16">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                <div>
+                    <p class="text-sm uppercase tracking-[0.35em] text-blue-600 font-semibold">Limited Time</p>
+                    <h2 class="text-4xl font-bold">Flash Sale Picks</h2>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300">Grab premium items before they're gone.</p>
+            </div>
+            <div id="flash-sale-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </section>
+
+        <section class="container mx-auto px-4 py-16 bg-gradient-to-r from-white to-slate-50 dark:from-slate-900 dark:to-gray-900 rounded-3xl shadow-lg">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div>
+                    <h2 class="text-3xl font-bold">Featured Brands</h2>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Shop from top brands across categories.</p>
+                </div>
+                <div class="grid grid-cols-3 sm:grid-cols-6 gap-4 w-full lg:w-auto">
+                    <div class="brand-card">APPLE</div>
+                    <div class="brand-card">SAMSUNG</div>
+                    <div class="brand-card">SONY</div>
+                    <div class="brand-card">NIKE</div>
+                    <div class="brand-card">ADIDAS</div>
+                    <div class="brand-card">PUMA</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-4 py-16">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold">Recommended for You</h2>
+                    <p class="text-gray-600 dark:text-gray-300">Based on trending and popular demand.</p>
+                </div>
+            </div>
+            <div id="recommended-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </section>
+
+        <section class="container mx-auto px-4 py-16 bg-gray-50 dark:bg-gray-800 rounded-3xl shadow-lg">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold">Newsletter</h2>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Stay updated with exclusive offers, new arrivals, and curated sales.</p>
+                </div>
+                <div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input id="newsletter-email" type="email" placeholder="Enter your email" class="flex-1 p-4 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none" />
+                        <button id="subscribe-newsletter" class="bg-blue-600 text-white px-6 py-4 rounded-full font-semibold hover:bg-blue-700 transition">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-4 py-16 bg-gray-50 dark:bg-gray-800 rounded-3xl shadow-lg">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold">Shop by Category</h2>
+                <p class="text-gray-600 dark:text-gray-300">Explore curated categories and discover your next purchase.</p>
+            </div>
+            <div id="categories" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"></div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-800 text-white py-12 mt-16"></footer>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/api/index.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/components/productCard.js"></script>
+    <script src="js/pages/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NovaCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-gradient-to-br from-blue-600 to-purple-600 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">NovaCart</h1>
+            <p class="text-blue-100">Premium Online Shopping</p>
+        </div>
+
+        <!-- Login Form -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Login to Your Account</h2>
+
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label class="block font-semibold mb-2">Email Address</label>
+                    <input type="email" id="email" required class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="your@email.com" />
+                </div>
+
+                <div>
+                    <label class="block font-semibold mb-2">Password</label>
+                    <input type="password" id="password" required class="w-full p-3 border dark:bg-gray-700 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="••••••••" />
+                </div>
+
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2" />
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="text-blue-600 hover:underline">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition mt-6">
+                    Login
+                </button>
+            </form>
+
+            <!-- Signup Link -->
+            <div class="text-center mt-6">
+                <p class="text-gray-600 dark:text-gray-300">Don't have an account? 
+                    <a href="/register.html" class="text-blue-600 hover:underline font-semibold">Sign Up</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="mt-4 bg-red-100 text-red-700 p-4 rounded-lg hidden"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/api/index.js"></script>
+    <script src="js/pages/login.js"></script>
+</body>
+</html>
