@@ -9,8 +9,27 @@ const app = express();
 
 // Middleware
 app.use(helmet());
+const allowedOrigins = [
+  env.FRONTEND_URL,
+  'https://effulgent-kataifi-556dfa.netlify.app',
+  'https://sharathbs.netlify.app'
+].filter(Boolean);
+
 app.use(cors({
-  origin: env.FRONTEND_URL,
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, postman)
+    if (!origin) return callback(null, true);
+    
+    // Check if origin is allowed or contains localhost
+    const isAllowed = allowedOrigins.includes(origin) || 
+                      origin.includes('localhost') || 
+                      origin.includes('127.0.0.1');
+                      
+    if (!isAllowed) {
+      return callback(new Error('CORS policy does not allow access from origin: ' + origin), false);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
