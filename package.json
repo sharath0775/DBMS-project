@@ -13,7 +13,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "seed": "node tests/seed.js",
-    "postinstall": "npm rebuild sqlite3"
+    "postinstall": "npm rebuild sqlite3 || true"
   },
   "keywords": [
     "ecommerce",
