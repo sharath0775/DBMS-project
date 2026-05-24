@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Professional E-Commerce Platform - Full Stack Application",
+  "engines": {
+    "node": "20.x"
+  },
   "main": "src/backend/server.js",
   "scripts": {
     "dev": "concurrently \"nodemon src/backend/server.js\" \"vite\"",
