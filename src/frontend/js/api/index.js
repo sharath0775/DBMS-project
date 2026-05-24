@@ -1,7 +1,9 @@
 // API Client - Handles all API communication
 class APIClient {
   constructor() {
-    this.baseURL = '/api';
+    this.baseURL = window.location.origin.includes('localhost') || window.location.origin.includes('127.0.0.1')
+      ? '/api'
+      : 'https://dbms-project-34ec.onrender.com/api';
     this.token = StorageManager.getAuthToken();
   }
 
