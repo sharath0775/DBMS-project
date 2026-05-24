@@ -12,7 +12,8 @@
     "start": "node src/backend/server.js",
     "build": "vite build",
     "preview": "vite preview",
-    "seed": "node tests/seed.js"
+    "seed": "node tests/seed.js",
+    "postinstall": "npm rebuild sqlite3"
   },
   "keywords": [
     "ecommerce",
